@@ -20,6 +20,9 @@ class RegisterViewController: UIViewController {
         imageView.image = UIImage(systemName: "person")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()
     
@@ -119,6 +122,10 @@ class RegisterViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(password)
         scrollView.addSubview(registerButton)
+        
+        imageView.isUserInteractionEnabled = true
+        scrollView.isUserInteractionEnabled = true
+        
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePicture))
         
         imageView.addGestureRecognizer(gesture)
@@ -128,6 +135,7 @@ class RegisterViewController: UIViewController {
     
     @objc private func didTapChangeProfilePicture(){
         print("Clicked to Change Profile Pic")
+        presentPhotoActionSheet()
     }
     
     override func viewDidLayoutSubviews() {
@@ -140,6 +148,7 @@ class RegisterViewController: UIViewController {
         emailField.frame = CGRect(x: 30, y: lastName.bottom+10, width:scrollView.width - 60, height: 52)
         password.frame = CGRect(x: 30, y: emailField.bottom+10, width:scrollView.width - 60, height: 52)
         registerButton.frame = CGRect(x: 30, y: password.bottom+10, width:scrollView.width - 60, height: 52)
+        imageView.layer.cornerRadius = imageView.width/2.0
     }
     
     @objc private func didTapRegister() {
@@ -183,5 +192,48 @@ extension RegisterViewController: UITextFieldDelegate {
             registerButtonTapped()
         }
         return true
+    }
+}
+
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+            return
+        }
+        self.imageView.image = selectedImage
+    }
+    
+    func presentPhotoActionSheet() {
+        let actionSheet = UIAlertController(title: "Profile Picture",
+                                            message: "Pick One",preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Take Photo", style: .default, handler: { [weak self]_ in self?.presentCamera()}))
+        actionSheet.addAction(UIAlertAction(title: "Choose Photo", style: .default, handler: { [weak self] _ in self?.presentPhotoAlbum() }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    func presentCamera() {
+        let pVC = UIImagePickerController()
+        pVC.sourceType = .camera
+        pVC.delegate = self
+        pVC.allowsEditing = true
+        present(pVC, animated: true)
+    }
+    
+    func presentPhotoAlbum() {
+        let pVC = UIImagePickerController()
+        pVC.sourceType = .photoLibrary
+        pVC.delegate = self
+        pVC.allowsEditing = true
+        present(pVC, animated: true)
+        
     }
 }

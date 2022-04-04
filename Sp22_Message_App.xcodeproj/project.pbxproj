@@ -54,12 +54,12 @@
 		2B9A786627FB525F00080B17 = {
 			isa = PBXGroup;
 			children = (
+				2B9A789B27FB77B600080B17 /* Sp22_Message_App */,
 				2B9A788A27FB538C00080B17 /* Resources */,
 				2B9A788927FB537F00080B17 /* View Models */,
 				2B9A788827FB537A00080B17 /* Models */,
 				2B9A788727FB537500080B17 /* Views */,
 				2B9A788627FB536E00080B17 /* Controllers */,
-				2B9A787127FB525F00080B17 /* Sp22_Message_App */,
 				2B9A787027FB525F00080B17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,14 +70,6 @@
 				2B9A786F27FB525F00080B17 /* Sp22_Message_App.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2B9A787127FB525F00080B17 /* Sp22_Message_App */ = {
-			isa = PBXGroup;
-			children = (
-				2B9A788027FB526000080B17 /* Info.plist */,
-			);
-			path = Sp22_Message_App;
 			sourceTree = "<group>";
 		};
 		2B9A788627FB536E00080B17 /* Controllers */ = {
@@ -142,6 +134,14 @@
 				2B9A788E27FB54EC00080B17 /* RegisterViewController.swift */,
 			);
 			path = Register_and_Login;
+			sourceTree = "<group>";
+		};
+		2B9A789B27FB77B600080B17 /* Sp22_Message_App */ = {
+			isa = PBXGroup;
+			children = (
+				2B9A788027FB526000080B17 /* Info.plist */,
+			);
+			path = Sp22_Message_App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
