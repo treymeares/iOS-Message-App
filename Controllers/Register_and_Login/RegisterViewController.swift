@@ -17,7 +17,8 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "logo")
+        imageView.image = UIImage(systemName: "person")
+        imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -118,8 +119,15 @@ class RegisterViewController: UIViewController {
         scrollView.addSubview(emailField)
         scrollView.addSubview(password)
         scrollView.addSubview(registerButton)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeProfilePicture))
+        
+        imageView.addGestureRecognizer(gesture)
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc private func didTapChangeProfilePicture(){
+        print("Clicked to Change Profile Pic")
     }
     
     override func viewDidLayoutSubviews() {

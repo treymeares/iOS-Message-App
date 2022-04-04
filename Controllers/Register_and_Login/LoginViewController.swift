@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
         title = "Login"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .done, target: self, action: #selector(didTapRegister))
         
-        loginButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
         emailField.delegate = self
         password.delegate = self
