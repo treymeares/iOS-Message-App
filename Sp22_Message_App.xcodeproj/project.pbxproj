@@ -19,6 +19,7 @@
 		2B9A789327FB551600080B17 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A789227FB551600080B17 /* VideoViewController.swift */; };
 		2B9A789527FB556700080B17 /* BeginConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A789427FB556700080B17 /* BeginConversationViewController.swift */; };
 		2B9A789727FB558F00080B17 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A789627FB558F00080B17 /* ProfileViewController.swift */; };
+		2B9A789A27FB608200080B17 /* Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9A789927FB608200080B17 /* Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		2B9A789227FB551600080B17 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2B9A789427FB556700080B17 /* BeginConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginConversationViewController.swift; sourceTree = "<group>"; };
 		2B9A789627FB558F00080B17 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2B9A789927FB608200080B17 /* Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				2B9A787227FB525F00080B17 /* AppDelegate.swift */,
 				2B9A787427FB525F00080B17 /* SceneDelegate.swift */,
+				2B9A789927FB608200080B17 /* Ext.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				2B9A789727FB558F00080B17 /* ProfileViewController.swift in Sources */,
 				2B9A787527FB525F00080B17 /* SceneDelegate.swift in Sources */,
 				2B9A789527FB556700080B17 /* BeginConversationViewController.swift in Sources */,
+				2B9A789A27FB608200080B17 /* Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
