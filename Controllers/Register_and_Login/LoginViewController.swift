@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  Sp22_Message_App
 //
 //  Created by Trey Meares on 4/4/22.
@@ -7,11 +7,12 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        title = "Login"
         // Do any additional setup after loading the view.
     }
     
