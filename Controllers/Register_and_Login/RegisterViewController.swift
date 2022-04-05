@@ -174,24 +174,28 @@ class RegisterViewController: UIViewController {
         }
         
         //FB Login Goes Here
-        
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {[weak self] AuthDataResult, error in
-            guard let result = AuthDataResult, error == nil else{
-                print("Error making new user")
-                return
-                
-            }
+        DatabaseManager.shared.checkForEmailExists(with: email, completion: {[weak self] exists in
             guard let strongSelf = self else{
             return
         }
-            let user = result.user
-            print("Crested User: \(user)")
-            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            guard !exists else{
+                strongSelf.alertUserLoginError(message: "A user account for \(email) already exists!")
+                return
+            }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {AuthDataResult, error in
+                guard AuthDataResult != nil, error == nil else{
+                    print("Error making new user")
+                    return
+                }
+                DatabaseManager.shared.insertUser(with: DatabaseManager.ChatAppUser(firstName: firstName, lastName: lastName, emailAddress: email))
+                print("added user")
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
         })
     }
     
-    func alertUserLoginError(){
-        let alert = UIAlertController(title: "Not So Fast", message: "Please Check All Entered Information, Some Was Missing To Create A New Account.", preferredStyle: .alert)
+    func alertUserLoginError(message: String = "Enter All Info To Create Acct"){
+        let alert = UIAlertController(title: "Not So Fast", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
         present(alert, animated: true)
     }
