@@ -6,6 +6,26 @@
 	<string>Please Allow Access To Add A Profile Picture</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Please Allow Access To Add A Profile Picture</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb719921902472365</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>719921902472365</string>
+    <key>FacebookClientToken</key>
+    <string>f6efd6ed9fad8268e7b7a6c714aa93c2</string>
+    <key>FacebookDisplayName</key>
+    <string>My Messenger</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-share-api</string>
+    </array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
